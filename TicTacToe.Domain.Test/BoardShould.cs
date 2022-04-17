@@ -14,6 +14,6 @@ public class BoardShould
         var positions = board.Positions;
 
         // Assert
-        Assert.True(positions.Count == 9);
+        Assert.Equal(9, positions.Count);
     }
 }
