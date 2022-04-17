@@ -2,4 +2,5 @@
 
 public class Board
 {
+    public IList<Position> Positions { get; set; }
 }
