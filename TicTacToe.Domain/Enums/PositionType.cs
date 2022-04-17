@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.Domain;
 
-public enum PositionTypre : byte
+public enum PositionType : byte
 {
     One = 1,
     Two = 2,

@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.Domain;
 
-public enum MarkerType
+public enum MarkerType : byte
 {
     X = 1,
     O = 2

@@ -6,15 +6,15 @@ public static class InitializePositions
     {
         return new List<Position>()
         {
-            new Position() { State = PositionState.Empty, Type = PositionTypre.One },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Two },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Three },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Four },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Five },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Six },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Seven },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Eight },
-            new Position() { State = PositionState.Empty, Type = PositionTypre.Nine },
+            new Position() { State = PositionState.Empty, Type = PositionType.One },
+            new Position() { State = PositionState.Empty, Type = PositionType.Two },
+            new Position() { State = PositionState.Empty, Type = PositionType.Three },
+            new Position() { State = PositionState.Empty, Type = PositionType.Four },
+            new Position() { State = PositionState.Empty, Type = PositionType.Five },
+            new Position() { State = PositionState.Empty, Type = PositionType.Six },
+            new Position() { State = PositionState.Empty, Type = PositionType.Seven },
+            new Position() { State = PositionState.Empty, Type = PositionType.Eight },
+            new Position() { State = PositionState.Empty, Type = PositionType.Nine },
         };
     }
 }
