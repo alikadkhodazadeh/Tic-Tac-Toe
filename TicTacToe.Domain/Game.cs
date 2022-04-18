@@ -5,9 +5,16 @@ public class Game
     public Game(Player playerX, Player playerO)
     {
         Players = new List<Player> { playerX, playerO };
+
+        PlayerX = playerX;
+        PlayerO = playerO;
+
         Board = new Board();
         Moves = new List<Move>();
     }
+
+    public Player PlayerX { get; }
+    public Player PlayerO { get; }
 
     public Board Board { get; private set; }
     public List<Player> Players { get; private set; }
@@ -29,9 +36,36 @@ public class Game
         return result;
     }
 
-    public Player GetWinner()
+    public Player GetNextTurn()
     {
-        // ---
-        return null;
+        if (Moves.Any())
+        {
+            var lastPlayer = Moves.Last().Player;
+            if (PlayerX == lastPlayer)
+                return PlayerO;
+            else
+                return PlayerX;
+        }
+        else
+            return PlayerX;
+    }
+
+    public GameResult GetWinner()
+    {
+        if (Moves.Count < 5)
+            return GameResult.Play;
+
+        var xWins = Board.HasAllRow(PositionState.X);
+        if (xWins)
+            return GameResult.XWin;
+
+        var oWins = Board.HasAllRow(PositionState.O);
+        if (oWins)
+            return GameResult.OWin;
+
+        if((xWins is false && oWins is false) && Board.Positions.Any(p=>p.State == PositionState.Empty))
+            return GameResult.Play;
+
+        return GameResult.Draw;
     }
 }

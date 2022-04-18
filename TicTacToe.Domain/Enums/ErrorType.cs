@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe.Domain;
 
-public enum ErrorType
+public enum ErrorType : byte
 {
     Unknown = 0,
     PositionStateIsNotEmpty = 1,
