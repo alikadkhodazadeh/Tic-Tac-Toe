@@ -4,20 +4,21 @@ namespace TicTacToe.Domain.Test;
 
 public class PositionShould
 {
-    [Fact]
-    public void Can_Change_Empty_Position()
+    [Theory]
+    [InlineData(PositionType.One, MarkerType.X, PositionState.X)]
+    [InlineData(PositionType.One, MarkerType.O, PositionState.O)]
+    [InlineData(PositionType.Two, MarkerType.X, PositionState.X)]
+    [InlineData(PositionType.Three, MarkerType.O, PositionState.O)]
+    public void Can_Change_Empty_Position(PositionType pt, MarkerType mt, PositionState ps)
     {
         // Arrange
-        var p1 = new Position(PositionType.One);
-        var p2 = new Position(PositionType.One);
+        var position = new Position(pt);
 
         // Act
-        p1.Mark(MarkerType.X);
-        p2.Mark(MarkerType.O);
+        position.Mark(mt);
 
         // Assert
-        Assert.Equal(PositionState.X, p1.State);
-        Assert.Equal(PositionState.O, p2.State);
+        Assert.Equal(ps, position.State);
     }
 
     [Fact]

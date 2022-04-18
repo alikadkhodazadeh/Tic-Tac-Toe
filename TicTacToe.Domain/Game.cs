@@ -9,13 +9,24 @@ public class Game
         Moves = new List<Move>();
     }
 
-    public Board Board { get; set; }
-    public List<Player> Players { get; set; }
-    public List<Move> Moves { get; set; }
+    public Board Board { get; private set; }
+    public List<Player> Players { get; private set; }
+    public List<Move> Moves { get; private set; }
 
-    public void AddMove(Move move)
+    public OperationResult AddMove(Move move)
     {
-        Moves.Add(move);
+        if (Moves.Count == 0)
+            return OperationResult.BuildFailure("No moves left!");
+
+        var lastMove = Moves.Last();
+        if (lastMove.Player.NickName == move.Player.NickName)
+            return OperationResult.BuildFailure($"Not {move.Player} turn!");
+
+        var result = Board.Fork(move.Position.Type, move.Player.MarkerType);
+        if (result.Success)
+            Moves.Add(move);
+
+        return result;
     }
 
     public Player GetWinner()

@@ -11,7 +11,7 @@ public class Position
     public PositionState State { get; private set; }
     public PositionType Type { get; }
 
-    public void Mark(MarkerType markerType)
+    public OperationResult Mark(MarkerType markerType)
     {
         if (State is PositionState.Empty)
         {
@@ -23,9 +23,9 @@ public class Position
                 case MarkerType.O:
                     State = PositionState.O;
                     break;
-                default:
-                    break;
             }
+            return OperationResult.BuildSuccess();
         }
+        return OperationResult.BuildFailure(ErrorType.PositionStateIsNotEmpty);
     }
 }
